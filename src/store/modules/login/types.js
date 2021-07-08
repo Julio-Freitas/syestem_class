@@ -1,0 +1,3 @@
+export const LOGIN_APP = 'LOGIN_APP';
+export const LOGIN_APP_SUCESS = 'LOGIN_APP_SUCESS';
+export const LOGIN_APP_FAILURE = 'LOGIN_APP_FAILURE';
