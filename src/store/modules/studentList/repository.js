@@ -1,7 +1,6 @@
-import api from '../../../services/api';
+import Api from '../../../services/api';
 
-export const getStudents = () => {
-    return new Promise((resolve, reject) => {
-        api.get('/alunos').then(resolve).catch(reject);
+export const getStudents = () =>
+    new Promise((resolve, reject) => {
+        Api.get('/alunos').then(resolve).catch(reject);
     });
-};

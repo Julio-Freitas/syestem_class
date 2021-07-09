@@ -4,37 +4,26 @@ import { NotFound } from '../pages/notFound';
 import { Register } from '../pages/register';
 import { Student } from '../pages/student';
 import { StudentList } from '../pages/studentList';
-import PrivateRoute from './privateRoutes';
+import Private from './private';
 
 export default function Routes() {
     return (
         <Switch>
-            <PrivateRoute path="/" component={Login} isClosed={false} />
-            <PrivateRoute
-                exact
-                path="/aluno"
-                component={Student}
-                isClosed={false}
-            />
-            <PrivateRoute
+            <Private exact path="/" component={Login} isClosed={false} />
+            <Private
                 exact
                 path="/aluno/edit/:id"
                 component={Student}
                 isClosed={false}
             />
-            <PrivateRoute
-                exact
-                path="/alunos"
-                component={StudentList}
-                isClosed={false}
-            />
-            <PrivateRoute
+            <Private exact path="/alunos" component={StudentList} isClosed />
+            <Private
                 exact
                 path="/novo/alunos"
                 component={Register}
                 isClosed={false}
             />
-            <PrivateRoute path="*" component={NotFound} isClosed={false} />
+            <Private path="*" component={NotFound} isClosed={false} />
         </Switch>
     );
 }

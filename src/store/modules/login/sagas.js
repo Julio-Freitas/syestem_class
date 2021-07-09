@@ -21,9 +21,7 @@ function* loginRequest({ payload }) {
                 user: { name: 'julio' },
             })
         );
-
-        // delay(1000);
-        history.push('alunos');
+        history.push('/alunos');
     } catch (error) {
         toast.error(error.response.data.erros);
         yield put(

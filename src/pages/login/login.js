@@ -1,14 +1,13 @@
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-// import * as actionLogin from '../../store/modules/login/actions';
+import * as actionLogin from '../../store/modules/login/actions';
 import { Input } from '../../components/input';
 
 import * as Styled from './styled';
-import history from '../../services/history';
 
 const Login = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const validationSchema = Yup.object({
         email: Yup.string()
@@ -20,22 +19,18 @@ const Login = () => {
     });
 
     const _handleSubmitForm = (values, { setSubmitting }) => {
-        // dispatch(actionLogin.login(values));
+        dispatch(actionLogin.login(values));
         setSubmitting(false);
     };
 
     return (
         <Styled.LoginContainer>
-            <button type="button" onClick={() => history.push('/asd')}>
-                asd
-            </button>
             <Formik
                 initialValues={{
                     email: 'juliocesar@live.com',
                     password: '123456',
                 }}
                 validationSchema={validationSchema}
-                // validate={_handleValidate}
                 onSubmit={_handleSubmitForm}
             >
                 {({ isSubmitting, errors }) => (
@@ -58,7 +53,7 @@ const Login = () => {
                             component={Input}
                         />
 
-                        <button type="button" disabled={isSubmitting}>
+                        <button type="submit" disabled={isSubmitting}>
                             Enviar
                         </button>
                     </Form>
