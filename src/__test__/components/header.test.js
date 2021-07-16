@@ -1,4 +1,6 @@
 // @ts-nocheck
+import React from 'react';
+
 import { render, screen, waitFor, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -12,12 +14,6 @@ function renderTesteWithRouter(component) {
 
 describe('should render Header', () => {
     afterAll(() => cleanup());
-
-    it('should content text Inicio', () => {
-        renderTesteWithRouter(<Header />);
-        const teste = screen.getByText(/Inicio/i);
-        expect(teste).toBeInTheDocument();
-    });
 
     it('click in link to go Home', () => {
         renderTesteWithRouter(<Header />);

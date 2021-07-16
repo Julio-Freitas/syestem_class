@@ -1,14 +1,31 @@
 import PropTypes from 'prop-types';
 import * as Styled from './styled';
 
-const Input = ({ field, form, label, focusIn, ...props }) => {
+const Input = ({
+    field,
+    form,
+    label,
+    focusIn,
+    touched,
+    errors,
+    handleBlur,
+    ...props
+}) => {
+    const { name } = field;
     return (
         <Styled.InputContainer>
-            <Styled.Label htmlFor={field.name}>
+            <Styled.Label htmlFor={name}>
                 {label}
-                <Styled.Input {...field} {...props} autoFocus={focusIn} />
+                <Styled.Input
+                    {...field}
+                    {...props}
+                    autoFocus={focusIn}
+                    onBlur={handleBlur}
+                />
             </Styled.Label>
-            <Styled.Error name={field.name} component="div" />
+            {touched[name] && errors[name] && (
+                <Styled.Error name={field.name} component="div" />
+            )}
         </Styled.InputContainer>
     );
 };
@@ -26,6 +43,9 @@ Input.propTypes = {
     props: PropTypes.object.isRequired,
     label: PropTypes.string.isRequired,
     focusIn: PropTypes.bool,
+    touched: PropTypes.object,
+    errors: PropTypes.object,
+    handleBlur: PropTypes.func,
 };
 
 export default Input;

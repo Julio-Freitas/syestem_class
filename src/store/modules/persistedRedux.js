@@ -6,7 +6,7 @@ export default (redurcers) => {
         {
             key: 'API_ALUNOS',
             storage,
-            whitelist: ['auth', 'studientList'],
+            whitelist: ['auth', 'studientList', 'student'],
         },
         redurcers
     );

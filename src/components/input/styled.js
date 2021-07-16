@@ -6,6 +6,8 @@ export const InputContainer = styled.div`
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    align-items: baseline;
+    position: relative;
 `;
 
 export const Label = styled.label`
@@ -25,7 +27,10 @@ export const Input = styled.input`
 
 export const Error = styled(ErrorMessage)`
     align-self: flex-start;
+    font-size: 10px;
     color: #c3073f;
     margin-right: 10px;
     font-weight: bold;
+    position: absolute;
+    bottom: -5px;
 `;

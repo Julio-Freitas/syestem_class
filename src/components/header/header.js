@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import * as Icon from 'react-icons/fa';
 import * as Styled from './styled';

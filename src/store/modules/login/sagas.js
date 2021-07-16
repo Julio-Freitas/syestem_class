@@ -1,5 +1,5 @@
 // @ts-ignore
-import { put, call, takeLatest, all } from '@redux-saga/core/effects';
+import { put, call, takeLatest, all } from 'redux-saga/effects';
 
 import { toast } from 'react-toastify';
 import Api from '../../../services/api';

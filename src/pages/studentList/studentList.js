@@ -3,12 +3,13 @@ import { connect, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import * as Styled from './styled';
 import * as action from '../../store/modules/studentList/actions';
+import { CardFlip } from '../../components/cardfip';
 
-const StudentList = ({ studentListRedux }) => {
+const StudentList = ({ studentListRedux, history }) => {
     const dispatch = useDispatch();
     const [studentList, setStudentList] = useState([]);
+
     useEffect(() => {
-        console.log(studentListRedux);
         setStudentList(studentListRedux);
     }, [studentListRedux]);
 
@@ -16,18 +17,25 @@ const StudentList = ({ studentListRedux }) => {
         dispatch(action.studentListRequest());
     }, [dispatch]);
     return (
-        <Styled.StudentListContainer>
-            {console.log(studentList)}
-            <Styled.CardContainer>
-                <Styled.Card>
-                    <Styled.CardImage></Styled.CardImage>
-                    <Styled.CardInfo>
-                        <p> José Lemos de Freitas</p>
-                        <p>jota@live.com</p>
-                    </Styled.CardInfo>
-                </Styled.Card>
-            </Styled.CardContainer>
-        </Styled.StudentListContainer>
+        <Styled.Container>
+            <h1>Lista de Alunos</h1>
+            <Styled.StudentListContainer>
+                {studentList.map((student) => (
+                    <CardFlip
+                        key={student.id.toString()}
+                        name={student.nome}
+                        years={student.idade}
+                        heigth={student.altura}
+                        weigth={student.peso}
+                        email={student.email}
+                        onClickDelete={(e) => console.log(e)}
+                        onClickEdit={() =>
+                            history.push(`/aluno/edit`, { id: student.id })
+                        }
+                    />
+                ))}
+            </Styled.StudentListContainer>
+        </Styled.Container>
     );
 };
 const mapStateToProps = (state) => ({

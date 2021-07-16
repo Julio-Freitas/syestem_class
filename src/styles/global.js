@@ -3,7 +3,7 @@ import * as Colors from '../config/colors';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,100;1,300;1,500;1,700;1,900&display=swap');
+
 
 *{
     margin: 0;
@@ -20,15 +20,7 @@ export default createGlobalStyle`
   html, body, #root{
     height:100%;
   }
-  button {
-    cursor: pointer;
-    background-color: ${Colors.primaryColor};
-    border: none;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-weight: 700;
-  }
+
   a{
     text-decoration: none;
     color: ${Colors.primaryColor};
